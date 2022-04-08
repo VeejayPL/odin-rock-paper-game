@@ -15,12 +15,6 @@
 // The score is saved in variable
 // Game lasts five rounds
 
-const askPlayer = prompt("Type your choice:", "paper / rock / scissors");
-const playerSelection = askPlayer.toLowerCase();
-const computerSelection = computerPlay();
-
-console.log(`You have chosen ${playerSelection}!`);
-
 function computerPlay() {
   const compChoice = Math.floor(Math.random() * 3);
 
@@ -39,7 +33,13 @@ function computerPlay() {
       break;
   }
 }
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+  const askPlayer = prompt("Type your choice:", "paper / rock / scissors");
+  const playerSelection = askPlayer.toLowerCase();
+  const computerSelection = computerPlay();
+
+  console.log(`You have chosen ${playerSelection}!`);
+
   switch (true) {
     case playerSelection === "rock" && computerSelection === "rock":
       return "It's a tie!";
@@ -72,5 +72,3 @@ function playRound(playerSelection, computerSelection) {
       return "Whooopsie, you have entered wrong value ;-)\nPlease try again!";
   }
 }
-
-console.log(playRound(playerSelection, computerSelection));
