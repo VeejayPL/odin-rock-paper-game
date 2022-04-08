@@ -78,3 +78,9 @@ function playRound() {
       return "Whooopsie, you have entered wrong value ;-)\nPlease try again!";
   }
 }
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+}
