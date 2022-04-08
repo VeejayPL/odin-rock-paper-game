@@ -15,6 +15,8 @@
 // The score is saved in variable
 // Game lasts five rounds
 
+// To have the random string, asign the string to number - then random number
+
 function computerPlay() {
   const compChoice = Math.floor(Math.random() * 3);
 
@@ -33,6 +35,10 @@ function computerPlay() {
       break;
   }
 }
+
+// The variable askPlayer has to be inside the function - otherwise, everytime the page loads,
+// window pops up
+
 function playRound() {
   const askPlayer = prompt("Type your choice:", "paper / rock / scissors");
   const playerSelection = askPlayer.toLowerCase();
