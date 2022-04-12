@@ -20,6 +20,9 @@
 function computerPlay() {
   const compChoice = Math.floor(Math.random() * 3);
 
+  // Can also leave switch (true) and compare
+  // like reset at the end of game()
+
   switch (compChoice) {
     case 0:
       console.log("Computer has chosen: scissors!");
