@@ -20,16 +20,16 @@
 function computerPlay() {
   const compChoice = Math.floor(Math.random() * 3);
 
-  switch (true) {
-    case compChoice === 0:
+  switch (compChoice) {
+    case 0:
       console.log("Computer has chosen: scissors!");
       return "scissors";
 
-    case compChoice === 1:
+    case 1:
       console.log("Computer has chosen: paper!");
       return "paper";
 
-    case compChoice === 2:
+    case 2:
       console.log("Computer has chosen: rock!");
       return "rock";
   }
