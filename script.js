@@ -24,15 +24,14 @@ function computerPlay() {
     case compChoice === 0:
       console.log("Computer has chosen: scissors!");
       return "scissors";
-      break;
+
     case compChoice === 1:
       console.log("Computer has chosen: paper!");
       return "paper";
-      break;
+
     case compChoice === 2:
       console.log("Computer has chosen: rock!");
       return "rock";
-      break;
   }
 }
 
@@ -53,50 +52,113 @@ function playRound() {
   switch (true) {
     case playerSelection === "rock" && computerSelection === "rock":
       console.log("It's a tie!");
-      return "It's a tie!";
+      result = "It's a tie!";
       break;
     case playerSelection === "rock" && computerSelection === "paper":
       console.log("You loose! Paper beats rock.");
-      return "You loose! Paper beats rock.";
+      result = "You loose! Paper beats rock.";
       break;
     case playerSelection === "rock" && computerSelection === "scissors":
       console.log("You win! Rock beats scissors.");
-      return "You win! Rock beats scissors.";
+      result = "You win! Rock beats scissors.";
       break;
     case playerSelection === "paper" && computerSelection === "rock":
       console.log("You win! Paper beats rock.");
-      return "You win! Paper beats rock.";
+      result = "You win! Paper beats rock.";
       break;
     case playerSelection === "paper" && computerSelection === "paper":
       console.log("It's a tie!");
-      return "It's a tie!";
+      result = "It's a tie!";
       break;
     case playerSelection === "paper" && computerSelection === "scissors":
       console.log("You loose! Scissors beat paper.");
-      return "You loose! Scissors beat paper.";
+      result = "You loose! Scissors beat paper.";
       break;
     case playerSelection === "scissors" && computerSelection === "rock":
       console.log("You loose! Rock beats scissors.");
-      return "You loose! Rock beats scissors.";
+      result = "You loose! Rock beats scissors.";
       break;
     case playerSelection === "scissors" && computerSelection === "paper":
       console.log("You win! Scissors beat paper.");
-      return "You win! Scissors beat paper.";
+      result = "You win! Scissors beat paper.";
       break;
     case playerSelection === "scissors" && computerSelection === "scissors":
       console.log("It's a tie!");
-      return "It's a tie!";
+      result = "It's a tie!";
       break;
     default:
       console.log(
         "Whooopsie, you have entered wrong value ;-)\nPlease try again!"
       );
-      return "Whooopsie, you have entered wrong value ;-)\nPlease try again!";
+      result = "Whooopsie, you have entered wrong value ;-)\nPlease try again!";
   }
 }
 
+let result = " ";
+
 function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+
   for (let i = 0; i < 5; i++) {
     playRound();
+    switch (true) {
+      case result === "You win! Rock beats scissors." ||
+        result === "You win! Paper beats rock." ||
+        result === "You win! Scissors beat paper.":
+        console.log(`You score 1! You'r total score = ${playerScore + 1}.`);
+        playerScore += 1;
+        break;
+      case result === "You loose! Paper beats rock." ||
+        result === "You loose! Scissors beat paper." ||
+        result === "You loose! Rock beats scissors.":
+        console.log(
+          `Computer scores 1! Computer total score = ${computerScore + 1}`
+        );
+        computerScore += 1;
+        break;
+      case result === "It's a tie!":
+        break;
+      default:
+        i--;
+        break;
+    }
+  }
+  switch (true) {
+    case playerScore > computerScore:
+      console.log(`
+      Congratulations!!
+      You have won!!
+      Your score: ${playerScore}
+      Computer score: ${computerScore}`);
+      break;
+    case playerScore < computerScore:
+      console.log(`
+      You've lost!!
+      Maybe next time
+      Your score: ${playerScore}
+      Computer score: ${computerScore}
+      `);
+      break;
+    case playerScore === computerScore:
+      console.log(`
+      It's a tie!!
+      Your score: ${playerScore}
+      Computer score: ${computerScore}
+      `);
+      break;
+  }
+
+  let reset = prompt("Would you like to play again?", "yes / no");
+
+  switch (true) {
+    case reset === "yes":
+      playerScore = 0;
+      computerScore = 0;
+      game();
+      break;
+    case reset === "no":
+      console.log("Thank you for your time");
+      break;
   }
 }
