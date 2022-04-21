@@ -9,12 +9,26 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <div>
-      <div></div>
-      <div>
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+    <div id="container" class="container">
+      <div class="content">
+        <p id="resultPlayer" class="result">Player score: 0</p>
+        <div class="resultWindow">
+          <p id="consoleLogComputer" class="consoleLogComputer">
+            Computer chooses...
+          </p>
+          <p id="consoleLogPlayer" class="consoleLogComputer">
+            Player chooses...
+          </p>
+          <p id="roundResult" class="roundResult">Round result...</p>
+        </div>
+        <p id="resultComputer" class="result">Computer score: 0</p>
+      </div>
+      <!-- <button id="newGame">Start new game</button> -->
+
+      <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
       </div>
     </div>
   </body>
