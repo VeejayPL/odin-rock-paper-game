@@ -13,7 +13,7 @@ const paraResultPlayer = document.querySelector("#resultPlayer");
 const paraResultComputer = document.querySelector("#resultComputer");
 const paraRoundResult = document.querySelector("#roundResult");
 
-let result = " ";
+let result;
 let playerScore = 0;
 let computerScore = 0;
 
